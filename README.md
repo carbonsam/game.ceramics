@@ -1,2 +1,3 @@
-# unity-ceramics-class
-Place to practice building concepts and design patterns with Unity
+# game.ceramics
+
+Place to learn and practice building games with Godot.
