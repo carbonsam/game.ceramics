@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://materials/ball.tres" type="Material" id=1]
-[ext_resource path="res://Ball.gd" type="Script" id=2]
+[ext_resource path="res://Puck.gd" type="Script" id=2]
 
 [sub_resource type="CylinderMesh" id=1]
 
 [sub_resource type="CylinderShape" id=2]
 
-[node name="Ball" type="KinematicBody"]
+[node name="Puck" type="KinematicBody" groups=["puck"]]
 axis_lock_motion_y = true
 move_lock_y = true
 script = ExtResource( 2 )
