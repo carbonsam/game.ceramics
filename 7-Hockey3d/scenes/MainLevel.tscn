@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://default_env.tres" type="Environment" id=1]
-[ext_resource path="res://materials/ground.tres" type="Material" id=2]
-[ext_resource path="res://materials/wall.tres" type="Material" id=3]
-[ext_resource path="res://PlayerPaddle.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Puck.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Goal.tscn" type="PackedScene" id=6]
-[ext_resource path="res://MainLevel.gd" type="Script" id=7]
-[ext_resource path="res://scenes/EnemyPaddle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Puck.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/EnemyPaddle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Goal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/PlayerPaddle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/MainLevel.gd" type="Script" id=5]
+[ext_resource path="res://materials/wall.tres" type="Material" id=6]
+[ext_resource path="res://materials/ground.tres" type="Material" id=7]
+[ext_resource path="res://default_env.tres" type="Environment" id=8]
+[ext_resource path="res://ui_theme.tres" type="Theme" id=9]
 
 [sub_resource type="CubeMesh" id=2]
 
@@ -18,10 +19,10 @@
 [sub_resource type="BoxShape" id=6]
 
 [node name="MainLevel" type="Node"]
-script = ExtResource( 7 )
+script = ExtResource( 5 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 1 )
+environment = ExtResource( 8 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 20, 0 )
@@ -32,7 +33,7 @@ shadow_enabled = true
 [node name="MeshInstance" type="MeshInstance" parent="Ground"]
 transform = Transform( 25, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0 )
 mesh = SubResource( 2 )
-material/0 = ExtResource( 2 )
+material/0 = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground"]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0 )
@@ -50,7 +51,7 @@ transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 40, 24.5, 2, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Walls/WallRight"]
 mesh = SubResource( 4 )
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Walls/WallRight"]
 shape = SubResource( 6 )
@@ -60,7 +61,7 @@ transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 40, -24.5, 2, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Walls/WallLeft"]
 mesh = SubResource( 4 )
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Walls/WallLeft"]
 shape = SubResource( 6 )
@@ -70,7 +71,7 @@ transform = Transform( 25, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 2, -39.5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Walls/WallTop"]
 mesh = SubResource( 4 )
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Walls/WallTop"]
 shape = SubResource( 6 )
@@ -80,7 +81,7 @@ transform = Transform( 25, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 2, 39.5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Walls/WallBottom"]
 mesh = SubResource( 4 )
-material/0 = ExtResource( 3 )
+material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Walls/WallBottom"]
 shape = SubResource( 6 )
@@ -88,40 +89,55 @@ shape = SubResource( 6 )
 [node name="PlayerPaddle" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 33 )
 
-[node name="EnemyPaddle" parent="." instance=ExtResource( 8 )]
+[node name="EnemyPaddle" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -33 )
 
-[node name="Puck" parent="." instance=ExtResource( 5 )]
+[node name="Puck" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 
-[node name="PlayerGoal" parent="." instance=ExtResource( 6 )]
+[node name="PlayerGoal" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 35.6 )
 
-[node name="EnemyGoal" parent="." instance=ExtResource( 6 )]
+[node name="EnemyGoal" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, -35.6 )
 
 [node name="HUD" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="PlayerBackground" type="ColorRect" parent="HUD"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 110.0
+margin_bottom = 60.0
+color = Color( 0.129412, 0.243137, 1, 1 )
+
+[node name="EnemyBackground" type="ColorRect" parent="HUD"]
+margin_left = 915.0
+margin_top = 10.0
+margin_right = 1015.0
+margin_bottom = 60.0
+color = Color( 1, 0.129412, 0.129412, 1 )
+
 [node name="ScorePlayerLabel" type="Label" parent="HUD"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 200.0
-margin_bottom = 34.0
-custom_colors/font_color = Color( 0.0392157, 0.137255, 0.937255, 1 )
-text = "0"
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 109.0
+margin_bottom = 59.0
+theme = ExtResource( 9 )
+text = "9999"
+align = 1
 
 [node name="ScoreEnemyLabel" type="Label" parent="HUD"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -200.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = 34.0
-custom_colors/font_color = Color( 0.792969, 0.0712433, 0.0712433, 1 )
-text = "0"
-align = 2
+margin_left = -108.0
+margin_top = 11.0
+margin_right = -10.0
+margin_bottom = 59.0
+theme = ExtResource( 9 )
+text = "9999"
+align = 1
 
 [connection signal="goal_scored" from="PlayerGoal" to="." method="_on_PlayerGoal_goal_scored"]
 [connection signal="goal_scored" from="EnemyGoal" to="." method="_on_EnemyGoal_goal_scored"]

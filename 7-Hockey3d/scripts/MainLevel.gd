@@ -20,6 +20,8 @@ func _ready():
 func resetGame():
 	scorePlayer = 0
 	scoreEnemy = 0
+	$HUD/ScorePlayerLabel.text = str(scorePlayer)
+	$HUD/ScoreEnemyLabel.text = str(scoreEnemy)
 	resetRound()
 
 func resetRound():
