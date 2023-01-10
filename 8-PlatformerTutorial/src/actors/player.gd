@@ -1,6 +1,6 @@
 extends Actor
 
-export var stomp_impulse: = 1000.0
+@export var stomp_impulse: = 1000.0
 
 func _on_EnemyArea_area_entered(area: Area2D):
 	_velocity = get_stomp_velocity(_velocity, stomp_impulse)
@@ -12,7 +12,10 @@ func _physics_process(delta: float):
 	var is_jump_interrupted: bool = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	var direction: = get_direction()
 	_velocity = get_move_velocity(_velocity, direction, speed, is_jump_interrupted)
-	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
+	set_velocity(_velocity)
+	set_up_direction(FLOOR_NORMAL)
+	move_and_slide()
+	_velocity = velocity
 
 func get_direction() -> Vector2:
 	return Vector2(

@@ -1,7 +1,7 @@
 extends Actor
 
 func _ready():
-	set_physics_process(false)
+	set_process_mode(false)
 	_velocity.x = -speed.x
 
 func _on_StompArea_body_entered(body: PhysicsBody2D):
@@ -14,4 +14,7 @@ func _physics_process(delta: float):
 	_velocity.y += gravity * delta
 	if is_on_wall():
 		_velocity.x *= -1.0
-	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
+	set_velocity(_velocity)
+	set_up_direction(FLOOR_NORMAL)
+	move_and_slide()
+	_velocity.y = velocity.y
