@@ -16,5 +16,7 @@ func _physics_process(delta: float):
 		_velocity.x *= -1.0
 	set_velocity(_velocity)
 	set_up_direction(FLOOR_NORMAL)
+	set_floor_snap_length(50.0)
+	set_floor_max_angle(PI / 3.0)
 	move_and_slide()
 	_velocity.y = velocity.y
