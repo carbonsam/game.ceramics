@@ -1,6 +1,4 @@
+res://src/objects/coin.tscn
+res://src/objects/coin.gd
 res://src/levels/LevelTemplate.tscn
 res://assets/tileset.tres
-res://src/actors/enemy.tscn
-res://src/actors/player.tscn
-res://src/actors/enemy.gd
-res://src/actors/player.gd

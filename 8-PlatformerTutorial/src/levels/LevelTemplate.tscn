@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1te0x0s5ss40"]
+[gd_scene load_steps=6 format=3 uid="uid://d1te0x0s5ss40"]
 
 [ext_resource type="TileSet" uid="uid://cywii16b3068v" path="res://assets/tileset.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://cdyfu1bcgryhg" path="res://src/actors/player.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://bpq4sfegsues0" path="res://src/actors/enemy.tscn" id="3"]
 [ext_resource type="Texture2D" uid="uid://dkf5hsoon5oqg" path="res://assets/background.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://bp6aixwxx6rrk" path="res://src/objects/coin.tscn" id="5_tlf6h"]
 
 [node name="LevelTemplate" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
@@ -40,5 +41,14 @@ position = Vector2(2399, 1015)
 
 [node name="Enemy2" parent="." instance=ExtResource("3")]
 position = Vector2(3722, 1016)
+
+[node name="Coin" parent="." instance=ExtResource("5_tlf6h")]
+position = Vector2(1445, 880)
+
+[node name="Coin2" parent="." instance=ExtResource("5_tlf6h")]
+position = Vector2(1675, 720)
+
+[node name="Coin3" parent="." instance=ExtResource("5_tlf6h")]
+position = Vector2(1920, 580)
 
 [editable path="Player"]

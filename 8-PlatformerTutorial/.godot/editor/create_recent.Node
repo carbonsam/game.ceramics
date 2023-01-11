@@ -1,1 +1,5 @@
+AnimationPlayer
+CollisionShape2D
+Area2D
+Node2D
 VisibleOnScreenEnabler2D

@@ -1,0 +1,144 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp6aixwxx6rrk"]
+
+[ext_resource type="Texture2D" uid="uid://dum6ynpn6m6xj" path="res://assets/coin.png" id="1_665ce"]
+[ext_resource type="Script" path="res://src/objects/coin.gd" id="1_j00d1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_man5x"]
+radius = 33.0
+
+[sub_resource type="Animation" id="Animation_1ow67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xs6gs"]
+resource_name = "bouncing"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coin:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.258816, 2.92818),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.258, 2.92),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, -10)]
+}
+
+[sub_resource type="Animation" id="Animation_6202q"]
+resource_name = "fade_out"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mppr4"]
+_data = {
+"RESET": SubResource("Animation_1ow67"),
+"bouncing": SubResource("Animation_xs6gs"),
+"fade_out": SubResource("Animation_6202q")
+}
+
+[node name="Coin" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_j00d1")
+
+[node name="Coin" type="Sprite2D" parent="."]
+texture = ExtResource("1_665ce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.0004)
+shape = SubResource("CircleShape2D_man5x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "bouncing"
+libraries = {
+"": SubResource("AnimationLibrary_mppr4")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
