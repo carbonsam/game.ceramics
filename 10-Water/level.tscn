@@ -1,6 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk5pg3413y7yr"]
+[gd_scene load_steps=10 format=3 uid="uid://dk5pg3413y7yr"]
 
 [ext_resource type="Shader" uid="uid://bp7j8ooso2qqb" path="res://water.tres" id="1_qg272"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k3iid"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_j8mq6"]
+sky_material = SubResource("ProceduralSkyMaterial_k3iid")
+
+[sub_resource type="Environment" id="Environment_8tt8e"]
+background_mode = 2
+sky = SubResource("Sky_j8mq6")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2mggu"]
 render_priority = 0
@@ -17,15 +30,34 @@ subdivide_depth = 20
 
 [sub_resource type="BoxMesh" id="BoxMesh_77l0x"]
 
+[sub_resource type="PrismMesh" id="PrismMesh_aes1l"]
+
 [node name="Level" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8tt8e")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("PlaneMesh_pycms")
 
 [node name="Island" type="MeshInstance3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 0, 1)
 mesh = SubResource("CylinderMesh_8n4sl")
 
 [node name="Box" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1.73205, 1, 0, -1, 1.73205, -3.79357, -0.684569, 2.912)
+transform = Transform3D(1.73205, 0.5, -0.866025, 0, 1.73205, 1, 1, -0.866026, 1.5, -2.79357, 0.015431, 5.912)
 mesh = SubResource("BoxMesh_77l0x")
+
+[node name="Wedge" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.87127e-08, -2.89778, -0.776457, -3, -9.27259e-08, 1.19209e-07, -1.39147e-07, 0.776457, -2.89778, 3, -0.7, 5)
+mesh = SubResource("PrismMesh_aes1l")
+skeleton = NodePath("../Box")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 5, 9)
+current = true
