@@ -1,7 +1,10 @@
-res://src/objects/coin.tscn
-res://src/objects/coin.gd
 res://src/levels/LevelTemplate.tscn
 res://assets/tileset.tres
+res://src/levels/Level01.tscn
+res://src/objects/coin.tscn
 res://src/objects/portal.tscn
-res://src/objects/portal.gd
 res://src/levels/Level02.tscn
+res://src/actors/actor.gd
+res://src/objects/portal.gd
+res://src/actors/player.tscn
+res://src/actors/enemy.tscn

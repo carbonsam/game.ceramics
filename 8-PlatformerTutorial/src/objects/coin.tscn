@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp6aixwxx6rrk"]
+[gd_scene load_steps=9 format=3 uid="uid://bp6aixwxx6rrk"]
 
 [ext_resource type="Texture2D" uid="uid://dum6ynpn6m6xj" path="res://assets/coin.png" id="1_665ce"]
 [ext_resource type="Script" path="res://src/objects/coin.gd" id="1_j00d1"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_le0eo"]
+closed = false
+polygon = PackedVector2Array(0, -35, 11, -34, 21, -30, 27, -24, 32, -17, 34, -10, 35, -2, 35, 6, 32, 14, 28, 21, 20, 29, 10, 33, 1, 35, -7, 34, -15, 31, -22, 27, -28, 22, -32, 15, -35, 6, -35, -3, -33, -11, -29, -19, -24, -26, -16, -31, -8, -34, 0, -35)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_man5x"]
 radius = 33.0
@@ -131,8 +135,12 @@ script = ExtResource("1_j00d1")
 [node name="Coin" type="Sprite2D" parent="."]
 texture = ExtResource("1_665ce")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Coin"]
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_le0eo")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9.92034)
+position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_man5x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

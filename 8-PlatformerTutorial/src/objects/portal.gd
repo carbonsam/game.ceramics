@@ -12,5 +12,6 @@ func _get_configuration_warning():
 	return "The next scene property can't be empty" if not next_scene else ""
 
 func teleport() -> void:
-	await animation_player.play("fade_in")
+	animation_player.play("fade_in")
+	await animation_player.animation_finished
 	get_tree().change_scene_to_packed(next_scene)

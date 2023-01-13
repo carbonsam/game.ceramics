@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpq4sfegsues0"]
+[gd_scene load_steps=6 format=3 uid="uid://bpq4sfegsues0"]
 
 [ext_resource type="Texture2D" uid="uid://cfk6twu2gwhp7" path="res://assets/enemy.png" id="1"]
 [ext_resource type="Script" path="res://src/actors/enemy.gd" id="2"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mnk3g"]
+closed = false
+polygon = PackedVector2Array(0, -49, 18, -45, 32, -36, 46, -19, 55, -1, 56, 13, 55, 28, 43, 42, 29, 48, -28, 48, -43, 42, -55, 29, -56, 14, -55, -1, -45, -23, -31, -39, -17, -46, 0, -49)
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(88, 67)
@@ -18,6 +22,10 @@ script = ExtResource("2")
 [node name="enemy_sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -48)
 texture = ExtResource("1")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="enemy_sprite"]
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_mnk3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -33.5)
