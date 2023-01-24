@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1te0x0s5ss40"]
+[gd_scene load_steps=9 format=3 uid="uid://d1te0x0s5ss40"]
 
 [ext_resource type="Texture2D" uid="uid://dkf5hsoon5oqg" path="res://assets/background.png" id="1_7t3gq"]
+[ext_resource type="PackedScene" uid="uid://dlltl0t8dhp6a" path="res://src/ui/hud.tscn" id="1_e2f2f"]
 [ext_resource type="TileSet" uid="uid://cywii16b3068v" path="res://assets/tileset.tres" id="2_m0xgt"]
 [ext_resource type="PackedScene" uid="uid://cdyfu1bcgryhg" path="res://src/actors/player.tscn" id="3_meibo"]
 [ext_resource type="PackedScene" uid="uid://bpq4sfegsues0" path="res://src/actors/enemy.tscn" id="4_dbvgn"]
@@ -11,6 +12,11 @@
 [node name="Level01" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [1280.0]
 metadata/_edit_vertical_guides_ = [8720.0]
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="HUD" parent="UI" instance=ExtResource("1_e2f2f")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100
@@ -38,53 +44,57 @@ limit_bottom = 1280
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Enemy" parent="." instance=ExtResource("4_dbvgn")]
-position = Vector2(2240, 1040)
-
-[node name="Enemy2" parent="." instance=ExtResource("4_dbvgn")]
-position = Vector2(3440, 1040)
-
-[node name="Enemy3" parent="." instance=ExtResource("4_dbvgn")]
-position = Vector2(5120, 640)
-
-[node name="Enemy4" parent="." instance=ExtResource("4_dbvgn")]
-position = Vector2(5440, 640)
-
-[node name="Enemy5" parent="." instance=ExtResource("4_dbvgn")]
-position = Vector2(7200, 1040)
-
-[node name="Coin" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(2960, 800)
-
-[node name="Coin2" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(3520, 560)
-
-[node name="Coin3" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(4080, 480)
-
-[node name="Coin4" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(4240, 640)
-
-[node name="Coin5" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(4320, 800)
-
-[node name="Coin6" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(6000, 880)
-
-[node name="Coin7" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(6000, 720)
-
-[node name="Coin8" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(6000, 560)
-
-[node name="Coin9" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(7680, 880)
-
-[node name="Coin10" parent="." instance=ExtResource("5_ams02")]
-position = Vector2(7920, 720)
-
 [node name="Portal" parent="." instance=ExtResource("6_hnu00")]
 position = Vector2(8320, 720)
 next_scene = ExtResource("7_0q2x2")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(2960, 800)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(3520, 560)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(4080, 480)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(4240, 640)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(4320, 800)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(6000, 880)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(6000, 720)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(6000, 560)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(7680, 880)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("5_ams02")]
+position = Vector2(7920, 720)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_dbvgn")]
+position = Vector2(2240, 1040)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_dbvgn")]
+position = Vector2(3440, 1040)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_dbvgn")]
+position = Vector2(5120, 640)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_dbvgn")]
+position = Vector2(5440, 640)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("4_dbvgn")]
+position = Vector2(7200, 1040)
 
 [editable path="Player"]

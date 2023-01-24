@@ -6,7 +6,7 @@ func _on_EnemyArea_area_entered(area: Area2D):
 	_velocity = get_stomp_velocity(_velocity, stomp_impulse)
 
 func _on_EnemyArea_body_entered(body: PhysicsBody2D):
-	queue_free()
+	die()
 
 func _physics_process(delta: float):
 	var is_jump_interrupted: bool = Input.is_action_just_released("jump") and _velocity.y < 0.0
@@ -46,3 +46,7 @@ func get_stomp_velocity(linear_velocity: Vector2, impluse: float) -> Vector2:
 	var out: = linear_velocity
 	out.y = -impluse
 	return out
+
+func die():
+	PlayerData.deaths += 1
+	queue_free()

@@ -1,13 +1,14 @@
+Node
+CanvasLayer
 VBoxContainer
+ColorRect
+Label
 Container
 Button
-Label
 TextureRect
 LightOccluder2D
 PointLight2D
 AnimationPlayer
-ColorRect
-CanvasLayer
 CollisionShape2D
 Area2D
 Node2D

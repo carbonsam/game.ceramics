@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://hjwfdxu2vvmc"]
+
+[ext_resource type="Theme" uid="uid://tbjn5tqmj540" path="res://assets/default_theme.tres" id="1_o0g1k"]
+[ext_resource type="Script" path="res://src/screens/end_screen.gd" id="2_8161e"]
+[ext_resource type="Texture2D" uid="uid://dkf5hsoon5oqg" path="res://assets/background.png" id="2_woe2w"]
+[ext_resource type="PackedScene" uid="uid://beampmhdw4ugi" path="res://src/ui/title.tscn" id="3_drhna"]
+[ext_resource type="PackedScene" uid="uid://bt7slk4lxdmi2" path="res://src/ui/change_scene_button.tscn" id="3_xf5f2"]
+[ext_resource type="PackedScene" uid="uid://bf72b0x787h45" path="res://src/ui/quit_button.tscn" id="4_26pwg"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o0g1k")
+script = ExtResource("2_8161e")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_woe2w")
+stretch_mode = 1
+
+[node name="Title" parent="." instance=ExtResource("3_drhna")]
+layout_mode = 1
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = -351.0
+offset_right = 427.0
+offset_bottom = -276.0
+grow_vertical = 2
+text = "Congrats, you finished the game!"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -247.0
+offset_right = 92.5
+offset_bottom = -199.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your final score is %s.
+You died %s times."
+horizontal_alignment = 1
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" parent="Menu" instance=ExtResource("3_xf5f2")]
+layout_mode = 2
+text = "Play Again"
+next_scene_path = "res://src/levels/Level01.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource("4_26pwg")]
+layout_mode = 2
