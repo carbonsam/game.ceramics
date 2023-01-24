@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://tbjn5tqmj540"]
+
+[ext_resource type="FontFile" path="res://assets/font_default.tres" id="1_k5fcs"]
+
+[resource]
+default_font = ExtResource("1_k5fcs")

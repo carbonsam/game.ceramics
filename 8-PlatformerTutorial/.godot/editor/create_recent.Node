@@ -1,3 +1,8 @@
+VBoxContainer
+Container
+Button
+Label
+TextureRect
 LightOccluder2D
 PointLight2D
 AnimationPlayer
