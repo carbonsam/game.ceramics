@@ -3,7 +3,7 @@ extends Control
 @onready var viewport: Viewport = get_viewport()
 @onready var scene_tree: SceneTree = get_tree()
 @onready var pause_overlay: ColorRect = $PauseOverlay
-@onready var score_label: Label = $ScoreLabel
+@onready var score_label: Label = $ScoreContainer/ScoreLabel
 @onready var pause_label: Label = $PauseOverlay/Title
 
 const DIED_MESSAGE = "You died"
@@ -25,7 +25,7 @@ func _unhandled_input(event):
 		viewport.set_input_as_handled()
 
 func update_interface():
-	score_label.text = "Score: %s" % PlayerData.score
+	score_label.text = str(PlayerData.score).lpad(3, "0")
 
 func set_paused(value: bool) -> void:
 	paused = value

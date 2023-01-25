@@ -1,6 +1,14 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://tbjn5tqmj540"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://tbjn5tqmj540"]
 
 [ext_resource type="FontFile" path="res://assets/font_default.tres" id="1_k5fcs"]
+[ext_resource type="StyleBox" uid="uid://dbdiqak4o5cke" path="res://assets/theme/button_hover.tres" id="1_tfwf8"]
+[ext_resource type="StyleBox" uid="uid://cm3ky14cklfj3" path="res://assets/theme/button_normal.tres" id="2_3hc2c"]
+[ext_resource type="StyleBox" uid="uid://dhcjmydoxswse" path="res://assets/theme/button_pressed.tres" id="3_f2xc0"]
 
 [resource]
 default_font = ExtResource("1_k5fcs")
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/styles/hover = ExtResource("1_tfwf8")
+Button/styles/normal = ExtResource("2_3hc2c")
+Button/styles/pressed = ExtResource("3_f2xc0")
+VBoxContainer/constants/separation = 16

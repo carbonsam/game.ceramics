@@ -1,7 +1,5 @@
 extends Actor
 
-@export var score: = 100
-
 func _ready():
 	set_process_mode(false)
 	_velocity.x = -speed.x
@@ -25,4 +23,3 @@ func _physics_process(delta: float):
 func die():
 	get_node("CollisionShape2D").disabled = true
 	queue_free()
-	PlayerData.score += score
