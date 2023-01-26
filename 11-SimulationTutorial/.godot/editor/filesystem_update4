@@ -1,0 +1,5 @@
+res://Simulation.tscn
+res://Shared/Tileset.tres
+res://Entities/Player/player.tscn
+res://Entities/Player/player.gd
+res://Simulation.gd

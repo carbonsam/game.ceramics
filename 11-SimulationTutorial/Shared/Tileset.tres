@@ -1,0 +1,63 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://drda4bychjg0a"]
+
+[ext_resource type="Texture2D" uid="uid://cmvoguo8ajrsy" path="res://Shared/tileset.svg" id="1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ynyh"]
+texture = ExtResource("1")
+margins = Vector2i(10, 10)
+separation = Vector2i(10, 10)
+texture_region_size = Vector2i(100, 100)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/2/physics_layer_0/angular_velocity = 0.0
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/3/physics_layer_0/angular_velocity = 0.0
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/4/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/4/physics_layer_0/angular_velocity = 0.0
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/5/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/5/physics_layer_0/angular_velocity = 0.0
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/6/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/6/physics_layer_0/angular_velocity = 0.0
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+0:0/7/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/7/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+4:2/0 = 0
+4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:2/0/physics_layer_0/angular_velocity = 0.0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -50.5, 49.5, -25.5, 49.5, 25.5, 0, 51, -49.5, 26, -49.5, -25.5)
+5:2/0 = 0
+5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:2/0/physics_layer_0/angular_velocity = 0.0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -50, 50, -25.5, 49.5, 25.5, -1.5, 51, -50, 26, -51, -26)
+
+[resource]
+tile_shape = 1
+tile_size = Vector2i(100, 50)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_5ynyh")

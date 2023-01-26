@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bddug6kjsabwa"]
+
+[ext_resource type="Texture2D" uid="uid://ctcobbou3ukr5" path="res://Entities/Player/pawn.svg" id="1_75jgs"]
+[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_rw062"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_el4xe"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rw062")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("1_75jgs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_el4xe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 20)
+current = true
+process_callback = 0
+position_smoothing_enabled = true
